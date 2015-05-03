@@ -1,0 +1,30 @@
+{
+  "name": "TodoApp",
+  "version": "1.0.0",
+  "description": "Все нижеприведенные команды нужно запускать в контексте рабочей папки проекта.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oklopirt/TodoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oklopirt/TodoApp/issues"
+  },
+  "homepage": "https://github.com/Oklopirt/TodoApp",
+  "devDependencies": {
+    "jasmine-core": "^2.3.0",
+    "karma-chrome-launcher": "^0.1.8",
+    "karma-jasmine": "^0.3.5"
+  },
+  "dependencies": {
+    "angular": "^1.3.15"
+  }
+}

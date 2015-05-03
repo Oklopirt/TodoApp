@@ -19,6 +19,13 @@ TodoStore.prototype.getAll = function () {
  */
 TodoStore.prototype.add = function (todo) {
     //TODO implement
+    if (!todo.title){
+        throw new Error("Заполните значение");
+    }
+    todo.id = this.$generateUniqueId();
+    var storage = this.getAll();
+    storage.push(todo);
+    this.$save(storage);
 };
 
 /**
@@ -27,14 +34,44 @@ TodoStore.prototype.add = function (todo) {
  */
 TodoStore.prototype.remove = function (todo) {
     //TODO implement
+    if (!todo.id){
+        throw new Error("Нет ID!");
+    }
+    var storage = this.getAll();
+
+
+    for (var i = 0; i < storage.length; i++){
+        if (storage[i].id === todo.id) {
+            storage.splice(i, 1);
+            this.$save(storage);
+            return;
+        }
+    }
+
+
 };
 
 /**
  * Завершить выполнение
  * @param todo
  */
-TodoStore.prototype.complete = function (todo, complete) {
+TodoStore.prototype.changeState = function (todo, state) {
     //TODO implement
+    var storage = this.getAll();
+    //var todoItemIndex = storage.indexOf(todo);
+    //
+    //if (todoItem >= 0){
+    //    var todoItem = storage[todoItemIndex];
+    //    todoItem.complete = state;
+    //    this.$save(storage);
+    //}
+
+    for (var i = 0; i < storage.length; i++){
+        if (storage[i].id === todo.id)
+            storage[i].state = state;
+     }
+
+    this.$save(storage);
 };
 
 /**
